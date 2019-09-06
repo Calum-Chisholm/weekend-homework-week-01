@@ -79,9 +79,13 @@ def pet_shop_name(x)
     return @pet_shop[:name]
   end
 end
-#
+
 def total_cash(sum)
   for cash in @pet_shop
     return @pet_shop[:admin][:total_cash]
   end
 end
+
+def add_or_remove_cash(x, y)
+    @pet_shop[:admin][:total_cash] += y
+  end
