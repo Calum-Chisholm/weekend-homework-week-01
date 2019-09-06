@@ -74,6 +74,8 @@
 #
 #
 #
+require 'pry'
+
 def pet_shop_name(x)
   return x[:name]
 end
@@ -96,4 +98,14 @@ end
 
 def stock_count(x)
   return x[:pets].count
+end
+
+def pets_by_breed(pet_shop, name)
+    by_breed = []
+    for pet in pet_shop[:pets]
+      if pet[:breed] == name
+        by_breed << pet
+      end
+    end
+  return by_breed
 end
