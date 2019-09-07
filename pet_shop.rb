@@ -119,3 +119,7 @@ end
 def add_pet_to_stock(pet_shop, new_pet)
   pet_shop[:pets] << new_pet
 end
+
+def customer_cash(customer)
+  return customer[:cash]
+end 
