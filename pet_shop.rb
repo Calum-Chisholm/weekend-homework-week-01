@@ -112,25 +112,34 @@ end
 
 # def find_pet_by_name(pet_shop, name)
 #   for pet in pet_shop
-#     if name == pet[:pets][:name]
+#     if pet[:pets][:name] == name
 #     end
 #   end
 #   return name
 # end
 
-def find_pet_by_name(pet_shop, name)
-n=0
-    for dude in pet_shop[:pets]
-      if pet_shop[:pets][n][:name] == name
-        pet = Hash.new
-        pet[:name] = pet_shop[:pets][n][:name]
-        n+=1
-      else
-        n+=1
-      end
-    end
-  return pet
+def find_pet_by_name(pet_shop, pet_name)
+  match = nil
+  for pet in pet_shop[:pets]
+    match = pet if(pet[:name] == pet_name)
+  end
+  return match
 end
+
+def remove_pet_by_name(pet_shop, pet_name)
+  pet_to_delete = find_pet_by_name(pet_shop, pet_name)
+  pet_shop[:pets].delete(pet_to_delete)
+end
+
+# def remove_pet_by_name(pet_shop, name)
+#   n = 0
+#       for dude in pet_shop[:pets]
+#         if pet_shop[:pets][n][:name] == name
+#         pets_shop[:pets][n][:name].delete
+#         end
+#       end
+#   end
+
 
 
 def add_pet_to_stock(pet_shop, new_pet)
