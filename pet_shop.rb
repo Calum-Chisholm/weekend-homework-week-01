@@ -173,3 +173,14 @@ end
 def customer_can_afford_pet(customer, pet)
   return customer[:cash] >= pet[:price]
 end
+
+def sell_pet_to_customer(pet_shop, pet, customer)
+  return if (pet == nil)
+  return if !(customer_can_afford_pet(customer, pet))
+
+  add_pet_to_customer(customer,pet)
+  add_or_remove_cash(pet_shop, pet[:price])
+  remove_customer_cash(pet_shop, pet[:price])
+  remove_pet_by_name(pet_shop, pet[:name])
+  increase_pets_sold(pet_shop, 1)
+end
