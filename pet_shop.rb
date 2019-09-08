@@ -118,6 +118,20 @@ end
 #   return name
 # end
 
+def find_pet_by_name(pet_shop, name)
+n=0
+    for dude in pet_shop[:pets]
+      if pet_shop[:pets][n][:name] == name
+        pet = Hash.new
+        pet[:name] = pet_shop[:pets][n][:name]
+        n+=1
+      else
+        n+=1
+      end
+    end
+  return pet
+end
+
 def add_pet_to_stock(pet_shop, new_pet)
   pet_shop[:pets] << new_pet
 end
@@ -140,8 +154,8 @@ end
 
 def customer_can_afford_pet(customer, new_pet)
   if customer[:cash] == new_pet[:price]
-  end
-    return true
-  else
-    return false
+ end
+  return true
+else
+  return false
 end
